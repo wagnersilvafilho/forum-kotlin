@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class TopicoService(private var topicos: List<Topico> = ArrayList(), private val cursoService: CursoService, rivate val usuarioService: UsuarioService){
+class TopicoService(private var topicos: List<Topico> = ArrayList(), private val cursoService: CursoService, val usuarioService: UsuarioService){
 
 //    init {
 //        val topico = Topico(
@@ -70,7 +70,7 @@ class TopicoService(private var topicos: List<Topico> = ArrayList(), private val
     }
 
     fun cadastrar(dto: NovoTopicoDto) {
-        topicos.plus(Topico(
+        topicos = topicos.plus(Topico(
             id = topicos.size.toLong() + 1,
             titulo = dto.titulo,
             mensagem = dto.mensagem,
