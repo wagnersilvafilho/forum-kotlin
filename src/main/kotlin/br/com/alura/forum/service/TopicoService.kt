@@ -68,8 +68,13 @@ class TopicoService(private val repository: TopicoRepository,
 //        topicos = Arrays.asList(topico, topico2, topico3)
 //    }
 
-    fun listar(): List<TopicoView> {
-        return repository.findAll().stream().map { t -> topicoViewMapper.map(t)}.collect(Collectors.toList());
+    fun listar(nomeCurso: String?): List<TopicoView> {
+        val topicos = if(nomeCurso == null){
+            repository.findAll()
+        } else {
+            repository.findByCursoNome(nomeCurso)
+        }
+        return topicos.stream().map { t -> topicoViewMapper.map(t)}.collect(Collectors.toList());
     }
 
     fun buscarPorId(id: Long): TopicoView{

@@ -10,11 +10,11 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-    hibernate:
-      ddl-auto: update
-  sql:
-    init:
-      mode: always
+#    hibernate:
+#      ddl-auto: update
+#  sql:
+#    init:
+#      mode: always
 
 #    spring.datasource.url=jdbc:h2:mem:testdb
 #    spring.datasource.driverClassName=org.h2.Driver
